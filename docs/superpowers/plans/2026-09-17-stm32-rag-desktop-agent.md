@@ -8,7 +8,7 @@
 
 **Tech Stack:** Electron, Electron Vite, React, TypeScript, Vite, Vitest, Testing Library, Node.js built-in SQLite with FTS5, PDF.js, SheetJS, Electron Builder, Playwright.
 
-**Spec:** `docs/superpowers/specs/2026-09-17-stm32-rag-desktop-agent-design.md`
+**Spec:** `docs/superpowers/specs/2026-09-17-manual-lens-agent-design.md`
 
 ## Global Constraints
 

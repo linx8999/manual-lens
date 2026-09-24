@@ -2,7 +2,7 @@ param(
   [switch]$RestartExplorer
 )
 
-$installDir = Join-Path $env:LOCALAPPDATA 'Programs\stm32-rag-desktop'
+$installDir = Join-Path $env:LOCALAPPDATA 'Programs\manual-lens'
 $iconPath = Join-Path $installDir 'app-icon.ico'
 $sourceIcon = Join-Path $PSScriptRoot '..\resources\icon.ico'
 

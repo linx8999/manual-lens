@@ -48,7 +48,7 @@ Get-Process -Name "STM32 手册智能体" -ErrorAction SilentlyContinue | Stop-P
 
 | 内容 | 位置 |
 |---|---|
-| 程序 | `%LOCALAPPDATA%\Programs\stm32-rag-desktop` |
+| 程序 | `%LOCALAPPDATA%\Programs\manual-lens` |
 | 桌面/开始菜单快捷方式 | 由安装程序创建，指向上面的目录 |
 | 资料库 | 用户选择的位置，默认 `文档\STM32RAG知识库` |
 | 位置指针 | `%APPDATA%\com.local.stm32rag\data-location.json` |
