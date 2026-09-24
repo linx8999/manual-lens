@@ -69,6 +69,12 @@
 
 ![设置](docs/images/settings.png)
 
+### 内置阅读器（原件页面已打码）
+
+真实手册页渲染在右侧阅读器里，引用片段高亮，页面正文已做模糊处理以规避版权。
+
+![内置阅读器](docs/images/reader-document.png)
+
 ### 曜石黑主题
 
 ![曜石黑主题](docs/images/theme-obsidian.png)

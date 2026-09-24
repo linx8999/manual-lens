@@ -19,8 +19,12 @@ const mime = {
 
 const server = createServer(async (request, response) => {
   const pathname = decodeURIComponent(new URL(request.url ?? "/", "http://localhost").pathname);
-  const filePath = join(rendererRoot, pathname === "/" ? "index.html" : pathname);
-  if (!filePath.startsWith(rendererRoot)) {
+  const fromLibrary = pathname.startsWith("/library/");
+  const root = fromLibrary ? resolve("resources", "library") : rendererRoot;
+  const filePath = fromLibrary
+    ? join(root, pathname.slice("/library/".length))
+    : join(root, pathname === "/" ? "index.html" : pathname);
+  if (!filePath.startsWith(root)) {
     response.writeHead(403).end();
     return;
   }
@@ -93,6 +97,21 @@ try {
   await page.waitForTimeout(400);
   await page.screenshot({ path: join(outputDir, "image-locate.png") });
 
+  // 阅读器打开真实手册页：渲染真页，正文打模糊以规避版权问题
+  await page.locator(".attach-preview .row-action").click();
+  await theme("white");
+  await page.getByTitle("STM32F10xxx参考手册（中文）.pdf").click();
+  await page.locator(".pdf-page-surface canvas").first().waitFor({ timeout: 60000 });
+  await page.waitForTimeout(1500);
+  await page.locator(".page-input input").fill("40");
+  await page.waitForTimeout(1500);
+  await page.addStyleTag({
+    content:
+      ".pdf-page-surface canvas, .pdf-page-surface .textLayer { filter: blur(7px); }"
+  });
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: join(outputDir, "reader-document.png") });
+
   // 设置页（白主题）
   await theme("white");
   await page.getByTitle("API 设置").click();
@@ -159,7 +178,13 @@ function stubApi() {
       importPaths: async () => [],
       remove: async () => undefined,
       toc: async () => [],
-      asset: async () => ({ kind: "pdf" })
+      asset: async (documentId) => {
+        if (documentId !== "doc-reference") {
+          return { kind: "pdf" };
+        }
+        const response = await fetch("/library/STM32F10xxx参考手册（中文）.pdf");
+        return { kind: "pdf", bytes: new Uint8Array(await response.arrayBuffer()) };
+      }
     },
     importJobs: { onProgress: () => () => undefined },
     conversations: {
