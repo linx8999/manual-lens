@@ -1,0 +1,70 @@
+{
+  "name": "stm32-rag-desktop",
+  "version": "0.2.5",
+  "description": "Local-first STM32 manual knowledge base agent: page-level citations, document scope filter, screenshot-to-page locate and an integrated PDF reader.",
+  "main": "./out/main/index.js",
+  "author": "linx8999",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linx8999/stm32-manual-agent.git"
+  },
+  "keywords": [
+    "stm32",
+    "rag",
+    "electron",
+    "manual",
+    "knowledge-base",
+    "sqlite",
+    "fts5",
+    "pdf",
+    "ocr",
+    "multimodal"
+  ],
+  "engines": {
+    "node": ">=22.5"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "electron-vite build && playwright test",
+    "seed": "tsx scripts/seed-library.ts",
+    "icon": "powershell -ExecutionPolicy Bypass -File scripts/generate-icons.ps1",
+    "dist:win": "npm run build && node scripts/build-win.mjs"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0",
+    "lucide-react": "^0.468.0",
+    "pdfjs-dist": "^6.3.289",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "xlsx": "^0.18.5",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^44.4.1",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "jsdom": "^30.0.1",
+    "playwright": "^1.63.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vitest": "^5.0.1"
+  }
+}

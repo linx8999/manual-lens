@@ -1,0 +1,39 @@
+appId: com.local.stm32rag
+productName: STM32 手册智能体
+copyright: Local desktop knowledge agent
+
+directories:
+  output: release
+  buildResources: resources
+
+files:
+  - out/**/*
+  - package.json
+
+extraResources:
+  - from: resources/library-manifest.json
+    to: library-manifest.json
+
+extraFiles:
+  - from: resources/icon.ico
+    to: app-icon.ico
+
+asar: true
+electronDist: node_modules/electron/dist
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: resources/icon.ico
+  artifactName: "${productName}-Setup-${version}.${ext}"
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: "STM32 手册智能体"
+  deleteAppDataOnUninstall: false

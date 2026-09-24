@@ -1,0 +1,16 @@
+node_modules/
+out/
+release/
+dist/
+data/
+coverage/
+playwright-report/
+test-results/
+artifacts/
+resources/library/
+resources/library-manifest.local.json
+.taste-skills/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
