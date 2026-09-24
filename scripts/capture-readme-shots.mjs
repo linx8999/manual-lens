@@ -190,7 +190,26 @@ function stubApi() {
       importDialog: async () => [],
       importPaths: async () => [],
       remove: async () => undefined,
-      toc: async () => [],
+      toc: async () => [
+        { id: "t1", documentId: "doc-reference", parentId: null, title: "导言", level: 1, pageNumber: 6, printedPage: "6" },
+        { id: "t2", documentId: "doc-reference", parentId: null, title: "相关文档", level: 1, pageNumber: 6, printedPage: "6" },
+        { id: "t3", documentId: "doc-reference", parentId: null, title: "1 文中的缩写", level: 1, pageNumber: 24, printedPage: "24" },
+        { id: "t4", documentId: "doc-reference", parentId: "t3", title: "1.1 寄存器描述表", level: 2, pageNumber: 24, printedPage: "24" },
+        { id: "t5", documentId: "doc-reference", parentId: "t3", title: "1.2 术语表", level: 2, pageNumber: 24, printedPage: "24" },
+        { id: "t6", documentId: "doc-reference", parentId: "t3", title: "1.3 可用的外设", level: 2, pageNumber: 24, printedPage: "24" },
+        { id: "t7", documentId: "doc-reference", parentId: null, title: "2 存储器和总线构架", level: 1, pageNumber: 25, printedPage: "25" },
+        { id: "t8", documentId: "doc-reference", parentId: "t7", title: "2.1 系统构架", level: 2, pageNumber: 25, printedPage: "25" },
+        { id: "t9", documentId: "doc-reference", parentId: "t7", title: "2.2 存储器组织", level: 2, pageNumber: 27, printedPage: "27" },
+        { id: "t10", documentId: "doc-reference", parentId: "t7", title: "2.3 存储器映像", level: 2, pageNumber: 29, printedPage: "29" },
+        { id: "t11", documentId: "doc-reference", parentId: "t10", title: "2.3.1 嵌入式SRAM", level: 3, pageNumber: 29, printedPage: "29" },
+        { id: "t12", documentId: "doc-reference", parentId: "t10", title: "2.3.2 位段", level: 3, pageNumber: 29, printedPage: "29" },
+        { id: "t13", documentId: "doc-reference", parentId: "t10", title: "2.3.3 嵌入式闪存", level: 3, pageNumber: 30, printedPage: "30" },
+        { id: "t14", documentId: "doc-reference", parentId: null, title: "3 CRC计算单元(CRC)", level: 1, pageNumber: 34, printedPage: "34" },
+        { id: "t15", documentId: "doc-reference", parentId: null, title: "8.5 GPIO 和AFIO寄存器地址映象", level: 1, pageNumber: 129, printedPage: "129" },
+        { id: "t16", documentId: "doc-reference", parentId: null, title: "9 中断和事件", level: 1, pageNumber: 130, printedPage: "130" },
+        { id: "t17", documentId: "doc-reference", parentId: null, title: "10 DMA控制器(DMA)", level: 1, pageNumber: 141, printedPage: "141" },
+        { id: "t18", documentId: "doc-reference", parentId: null, title: "11 模拟/数字转换(ADC)", level: 1, pageNumber: 155, printedPage: "155" }
+      ],
       asset: async (documentId) => {
         if (documentId !== "doc-reference") {
           return { kind: "pdf" };

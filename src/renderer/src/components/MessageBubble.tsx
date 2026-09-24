@@ -24,7 +24,7 @@ export function MessageBubble({
     <article className={`message-row ${isAssistant ? "assistant" : "user"}`}>
       <div className="message-bubble">
         <div className="message-meta">
-          <strong>{isAssistant ? "知识库智能体" : "你"}</strong>
+          {isAssistant && <strong>知识库智能体</strong>}
           {message.status === "streaming" && (
             <span className="streaming-label">
               <LoaderCircle className="spin" size={13} />
