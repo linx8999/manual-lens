@@ -61,7 +61,7 @@
 
 附加截图后「查找对应页面」按钮才会亮起；结果按相似值排序，最相似的一条高亮标注。
 
-![截图定位到页](docs/images/image-locate.png)
+![截图定位到页](docs/images/screenshot-to-page.png)
 
 ### 设置
 
