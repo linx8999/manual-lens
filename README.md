@@ -1,6 +1,6 @@
-# STM32 手册智能体
+# ManualLens — STM32 手册智能体
 
-[![CI](https://github.com/linx8999/stm32-manual-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/linx8999/stm32-manual-agent/actions/workflows/ci.yml)
+[![CI](https://github.com/linx8999/manual-lens/actions/workflows/ci.yml/badge.svg)](https://github.com/linx8999/manual-lens/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 一个跨平台桌面端的**本地优先** STM32 手册知识库智能体。把你自己手上的 STM32 参考手册、
@@ -140,8 +140,8 @@ Top-N 证据 ──► ④ 提示词（携带关键概念与提问意图）─�
 ## 快速开始
 
 ```powershell
-git clone https://github.com/linx8999/stm32-manual-agent.git
-cd stm32-manual-agent
+git clone https://github.com/linx8999/manual-lens.git
+cd manual-lens
 npm install
 npm run dev
 ```
@@ -347,7 +347,7 @@ npm run dist:win
 
 - 产物：`release/STM32 手册智能体-Setup-<version>.exe`（NSIS，可选安装目录）。
 - 安装包**不包含任何手册**，首次使用请自行导入。
-- 安装后资源位于 `%LOCALAPPDATA%\Programs\stm32-rag-desktop`。
+- 安装后资源位于 `%LOCALAPPDATA%\Programs\manual-lens`。
 - 详细部署说明见 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)。
 
 ## 常见问题

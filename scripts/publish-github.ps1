@@ -15,7 +15,7 @@
   powershell -ExecutionPolicy Bypass -File scripts/publish-github.ps1
 #>
 param(
-  [string]$Repo = "stm32-manual-agent",
+  [string]$Repo = "manual-lens",
   [string]$Branch = "open-source",
   [string]$Remote = "origin",
   [switch]$Private

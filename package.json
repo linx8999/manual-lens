@@ -1,5 +1,5 @@
 {
-  "name": "stm32-rag-desktop",
+  "name": "manual-lens",
   "version": "0.2.5",
   "description": "Local-first STM32 manual knowledge base agent: page-level citations, document scope filter, screenshot-to-page locate and an integrated PDF reader.",
   "main": "./out/main/index.js",
@@ -8,7 +8,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/linx8999/stm32-manual-agent.git"
+    "url": "https://github.com/linx8999/manual-lens.git"
   },
   "keywords": [
     "stm32",

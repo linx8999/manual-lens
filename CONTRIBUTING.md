@@ -11,7 +11,7 @@
 
 ```powershell
 git clone <your-fork>
-cd stm32-manual-agent
+cd manual-lens
 npm install
 npm run dev
 ```
