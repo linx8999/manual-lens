@@ -55,7 +55,9 @@ if ($keyHits) {
 Write-Host "敏感内容检查通过。" -ForegroundColor Green
 
 $visibility = if ($Private) { "--private" } else { "--public" }
+$ErrorActionPreference = 'Continue'
 gh repo view "$owner/$Repo" *> $null
+$ErrorActionPreference = 'Stop'
 if ($LASTEXITCODE -ne 0) {
   Write-Host "创建仓库 $owner/$Repo ..." -ForegroundColor Cyan
   gh repo create "$owner/$Repo" $visibility --description "Local-first STM32 manual knowledge base agent with page-level citations"
