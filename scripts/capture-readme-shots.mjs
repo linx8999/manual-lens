@@ -8,6 +8,12 @@ const rendererRoot = resolve("out", "renderer");
 const outputDir = resolve("artifacts", "readme");
 await mkdir(outputDir, { recursive: true });
 
+// 演示用附件：优先用真实手册截图（放在 artifacts 下，不随仓库发布），
+// 没有时回退到应用图标。
+const attachedShotPath = existsSync(resolve(outputDir, "attached-shot.png"))
+  ? resolve(outputDir, "attached-shot.png")
+  : resolve("resources", "icon-1024.png");
+
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -89,12 +95,19 @@ try {
     .setInputFiles({
       name: "manual-shot.png",
       mimeType: "image/png",
-      buffer: await readFile(resolve("resources", "icon-1024.png"))
+      buffer: await readFile(attachedShotPath)
     });
   await page.waitForTimeout(500);
   await page.getByRole("button", { name: "查找对应页面" }).click();
   await page.locator(".image-match-item").first().waitFor({ timeout: 20000 });
-  await page.waitForTimeout(400);
+  // 命中后阅读器会自动打开对应页：等它渲染完，先给正文打码再截图
+  await page.locator(".pdf-page-surface canvas").first().waitFor({ timeout: 60000 });
+  await page.waitForTimeout(1200);
+  await page.addStyleTag({
+    content:
+      ".pdf-page-surface canvas, .pdf-page-surface .textLayer { filter: blur(7px); }"
+  });
+  await page.waitForTimeout(300);
   await page.screenshot({ path: join(outputDir, "image-locate.png") });
 
   // 阅读器打开真实手册页：渲染真页，正文打模糊以规避版权问题
